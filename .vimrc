@@ -119,6 +119,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/seoul256.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'francoiscabrol/ranger.vim'
 "Plug 'skywind3000/vim-preview' " requirement : ctags --fields=+nS
 call plug#end()
 

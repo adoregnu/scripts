@@ -27,10 +27,13 @@ set showmatch
 "comment 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " disable auto comment
 
+"miniBufExpl
 let g:miniBufExplMapWindowNavVim = 1 
 let g:miniBufExplMapWindowNavArrows = 1 
 let g:miniBufExplMapCTabSwitchBufs = 1 
 let g:miniBufExplModSelTarget = 1 
+map <S-l> :bn<CR>
+map <S-h> :bp<CR>
 
 "When editing a file, always jump to the last known cursor position
 "Don't do it when the position is invalid or when inside an event handler
@@ -59,11 +62,6 @@ if has("gui_running")
 	win 80 60
 	set scrolloff=3
 endif
-
-" status bar
-set laststatus=2
-set statusline=\(%n\)%<%f\ %h%m%r%=0x%B\ \ \ \ %-14.(%l,%c%V%)\ %P
-
 
 " vim -b : edit binary using xxd-format!
 augroup Binary
@@ -95,12 +93,12 @@ endfunction
 
 call SetProject()
 
+" NERDTree
 let g:NERDTreeWinPos = "right"
-
-nmap <silent>  ;=  :call AlignAssignments()<CR>
-
 " Open and close all the three plugins on the same time 
 nmap <F7>  :NERDTree<CR>
+
+nmap <silent>  ;=  :call AlignAssignments()<CR>
 
 " comment one line "
 map ,* :s/^\(.*\)$/\/\* \1 \*\//<CR><Esc>:nohlsearch<CR>
@@ -117,9 +115,11 @@ let c_ansi_constants       =1
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 " PlugInstall, PlugUpdate, ...
 call plug#begin('~/.vim/plugged')
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/seoul256.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'skywind3000/vim-preview' " requirement : ctags --fields=+nS
+"Plug 'skywind3000/vim-preview' " requirement : ctags --fields=+nS
 call plug#end()
 
 let g:seoul256_background = 233

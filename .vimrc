@@ -126,3 +126,5 @@ call plug#end()
 let g:seoul256_background = 233
 colo seoul256
 "colo elflord
+let g:airline_powerline_fonts = 1
+

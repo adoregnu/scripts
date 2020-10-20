@@ -54,7 +54,8 @@ if has("gui_running")
 	"set guioptions+=b "bottom scroll bar 
 	"set nowrap 
 
-	set gfn=Courier\ New:h10
+	"set gfn=Courier\ New:h10
+	set gfn=D2Coding\ 10
 	map <A-SPACE> :simalt~x <CR>
 	map <C-SPACE> :simalt~r <CR>
 
@@ -76,12 +77,19 @@ augroup Binary
 augroup END
 
 function SetProject()
-	let core = '/projects/GPS_KR_DEV1/P4_home/byungseok/client/core/'
-	let allPartners='/allPartners/deliverables'
+	let core = '/home/byungseok/p4/'
+	let allPartners='/allPartners'
 	let deliverables='/proprietary/deliverables'
 	let sharedCode='/customers/samsung/shared_code'
+    let samsung = 'client/core/rel/Samsung'
 
-	let rels = ['dev/v10', 'rel/Samsung/Zero/Zero_19.CLU3.CLL5.4_22.19.16.234678', 'rel/Samsung/V/V_19.CLU3.CLL5.4_22.19.19.257460']
+	let rels = ['client/core/dev/v10',
+			   \'Sandbox/byungsey/Star/20.22.310750_CL325568/v10',
+			   \samsung.'/Solis/Solis_19.CLU3.CLL5.4_62.19.20.267467',
+               \samsung.'/Dream/Dream_19.CLU3.CLL5.4_64.19.20.280845',
+               \samsung.'/Star/20.22.310750/v10',
+               \samsung.'/Star/MR/20.22.325024/v10',
+               \samsung.'/Crown/20.22.326310/v10']
 	for rel in rels
 		let project = [core.rel.allPartners, core.rel.deliverables, core.rel.sharedCode]
 		let ret = TagsScope#set(project)
@@ -120,6 +128,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/seoul256.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'francoiscabrol/ranger.vim'
+Plug 'inkarkat/vim-ingo-library'
+
 "Plug 'skywind3000/vim-preview' " requirement : ctags --fields=+nS
 call plug#end()
 
